@@ -1,0 +1,19 @@
+body p
+{
+  color: red;
+}
+
+header nav ul a:hover
+{
+  color: orange;
+}
+
+h1
+{
+  font-size: 5em;
+}
+
+.bear-ul li
+{
+  display: inline-block;
+}
