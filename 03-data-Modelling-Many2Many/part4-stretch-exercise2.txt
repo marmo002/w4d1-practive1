@@ -9,23 +9,23 @@ SOCIAL MEDIA APP SYSTEM
 |                                                                                                                                                           |
 |                                                                                                                                                           |
 |                                                                                                                                                           |
-|                              USER                               follow                                     USER                                           |
-|                                                                                                                                                           |
-|                               id: primary-key+--------+          id: primary-key                 +---------+id: primary-key                               |
-|                               name: string            |          date: date                      |          name: string                                  |
-|                               handle: string          +--------->follower-id: integer            |          handle: string                                |
-|                                                                  followed-id: integer<-----------+                                                        |
-|                                                                                                                                                           |
-|                                                                                                                                                           |
-|                                                                                                                                                           |
-|                                                                                                                                                           |
-|                                                                                                                                                           |
-|                                                                                                                                                           |
-|                                                                                                                                                           |
-|                                                                                                                                                           |
-|                                                                                                                                                           |
-|                                                                                                                                                           |
-|                                                                                                                                                           |
+|                              USER                                       REQUEST                                     USER                                  |
+|                                                ONE                                                               ONE                                      |
+|                               id: primary-key+--------------+            id: primary-key               +------------+id: primary-key                      |
+|                               name: string                  |            date: date                    |             name: string                         |
+|                               handle: string                |       MANY status: string                |             handle: string                       |
+|                                                             +----------->from-id: integer MANY         |                                                  |
+|                                                             |            to-id: integer<---------------+                                                  |
+|                                                             |                                          |                                                  |
+|                                                             |                                          |                                                  |
+|                                                             |                                          |                                                  |
+|                                                             |                                          |                                                  |
+|                                                             |                                          |                                                  |
+|                                                             |                                          |                                                  |
+|                                                             |            friendship                    |                                                  |
+|                                                             |       MANY                               |                                                  |
+|                                                             +------------>user-one-id: integer MANY    |                                                  |
+|                                                                           user-two-id: integer<--------+                                                  |
 |                                                                                                                                                           |
 |                                                                                                                                                           |
 |                                                                                                                                                           |
