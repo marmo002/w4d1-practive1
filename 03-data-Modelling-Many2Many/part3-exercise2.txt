@@ -1,0 +1,55 @@
+ARLINE APP SYSTEM
+- airline
+- schedule
+- flight
+- planes
+- crew_member
+- passenger
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                                                                                                                           |
+|                                                                                                                                                           |
+|        AIRLINE                                                                                                                                            |
+|        +----------------+                                                                                                                                 |
+|        |id: primary-key+-+ONE                                                                                                                             |
+|        |name: string    ||                                                                                                                                |
+|        |slogan: text    ||                                                                                                                                |
+|        |address: string ||                                                                                                                                |
+|        |founded: date   ||                                                                                                                                |
+|        |                ||                                                                                                                                |
+|        +-----------------+                                                                                                                                |
+|                          |                                                                                                                                |
+|                          |                                                                                                                                |
+|                          |                                                 MANY TO MANY                                                                   |
+|                          |             +---------------------------------------------------------------------------+                                      |
+|                          |             |                                                                           |                                      |
+|                          |             |                                                                           |                                      |
+|                          |    FLIGHT   |                             SCHEDULE                              PLANE   |                                      |
+|                          |   +---------+----------+ONE              +-------------------------+        ONE+--------+----------+                           |
+|                          |   | id: primary-key+----------+          | id: primary-key         |    +-------+id: primary-key   |                           |
+|                          |   | from: string       |      |          | date: date              |    |      | model: string     |                           |
+|                          |   | to: string         |      |      MANY| time: time              |    |      | number: integer   |                           |
+|                          |   | duration: time     |      +----------->flight-id: integer      |MANY|      | capacity: integer |                           |
+|                          +---->airline-id:integer |                 | plane-id: integer<-----------+      | hours: decimal    |                           |
+|                          MANY+--------------------+                 | crew-member-id: integer<------+     |                   |                           |
+|                                                             MANY +--->passenger-id: integer   |MANY |     +-------------------+                           |
+|                                                                  |  |                         |     |                                                     |
+|                                                                  |  +-------------------------+     |                                                     |
+|                                                                  |                                  |                                                     |
+|                                                                  |                                  |                                                     |
+|                                                                  |                                  |                                                     |
+|                                              PASSENGER           |                                  |      CREW-MEMBER                                    |
+|                                              +-------------------+                                  |  ONE+-------------------+                           |
+|                                              |id: primary-key +--+ ONE                              +------+id: primary-key   |                           |
+|                                              |name: string      |                                         | name: string      |                           |
+|                                              |address: string   |                                         | address: string   |                           |
+|                                              |                  |                                         | title: string     |                           |
+|                                              |                  |                                         |                   |                           |
+|                                              +------------------+                                         +-------------------+                           |
+|                                                                                                                                                           |
+|                                                                                                                                                           |
+|                                                                                                                                                           |
+|                                                                                                                                                           |
+|                                                                                                                                                           |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
